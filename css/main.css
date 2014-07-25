@@ -1,0 +1,43 @@
+.container{
+  padding : 20px;
+}
+.red-cont{
+  background: #428bca;
+  color: #fff;
+  text-align: center;
+}
+blockquote{
+  border-left: 5px solid #428bca;
+}
+.progress_container h4{
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.footer_links{
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #F0EAEA;
+  text-align: center;
+}
+
+.footer_links a{
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  background: url("../img/social_icons_sm.png") no-repeat;
+  text-indent: -9999px;
+  margin: 0 5px;
+}
+.footer_links a.twitter{
+  background-position: -29px 0;
+}
+.footer_links a.github{
+  background-position: -57px 0;
+}
+.footer_links a.wordpress{
+  background-position: -86px 0;
+}
+.footer_links a.linkedin{
+  background-position: -114px 0;
+}
+

@@ -6,6 +6,9 @@
   color: #fff;
   text-align: center;
 }
+.red-cont p{
+  font-size: 19px;
+}
 blockquote{
   border-left: 5px solid #428bca;
 }

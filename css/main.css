@@ -7,14 +7,22 @@
   text-align: center;
 }
 .red-cont p{
-  font-size: 19px;
+  font-size: 18px;
 }
 blockquote{
   border-left: 5px solid #428bca;
 }
 .progress_container h4{
   margin-top: 20px;
+  font-size: 16px;
   margin-bottom: 5px;
+  color: #5cb85c;
+}
+.progress_container h4.blue{
+  color: #5bc0de;
+}
+.progress_container h4.yellow{
+  color: #f0ad4e;
 }
 .footer_links{
   margin-top: 30px;

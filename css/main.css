@@ -1,22 +1,46 @@
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+p{
+  font-family: 'Open Sans', sans-serif;
+}
 .container{
   padding : 20px;
 }
 .red-cont{
-  background: #428bca;
+  background: #3d4860;
   color: #fff;
   text-align: center;
+  padding-bottom: 31px;
+}
+.red-cont h3{
+  font-weight: 600;
+  margin-bottom: 0px;
 }
 .red-cont p{
   font-size: 18px;
+  font-weight: 400px;
+  line-height: 30px;
+}
+.red-cont p.tagline{
+  font-size: 15px;
+  font-weight: 400px;
+  font-style: italic;
 }
 blockquote{
-  border-left: 5px solid #428bca;
+  border-left: 5px solid #3d4860;
 }
 .progress_container h4{
   margin-top: 20px;
   font-size: 16px;
   margin-bottom: 5px;
   color: #5cb85c;
+}
+.btn-success, .btn-success:hover{
+  background: #31ccb0;
+  border-color: #31ccb0;
+  padding: 11px 29px;
+  margin-top: 15px;
 }
 .progress_container h4.blue{
   color: #5bc0de;

@@ -2,7 +2,7 @@
 layout: post
 title:  cap-theorm
 date:   2019-04-11 15:42:04 +0530
-categories: posts
+categories: blog posts
 ---
 Instead of choosing different database for explaining cases like CP, AP and CA. I will choose only Mongo to explain the scenarios.
 

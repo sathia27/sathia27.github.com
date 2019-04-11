@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "CAP Theorm — With Mongo"
+title:  cap-theorm
 date:   2019-04-11 15:42:04 +0530
 categories: posts
 ---

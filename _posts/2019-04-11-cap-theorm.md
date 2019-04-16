@@ -18,7 +18,7 @@ This problem can be solved by having multi node system. In particular, the CAP t
 
 ## You chose AP
 
-what if you chose **Availability** in this case?
+what if you chose **Availability**?
 
 When you chose Availability over Consistency, doesn't mean that data won’t be consistent across the other nodes. Data will be eventually consistent. Once your application writes the data to master node, replication will happen eventually. In-case if other nodes are behaving bad, replication might take time. Other applications which are reading the data from slave nodes will not receive latest data due to replication lag. Most of DB will replicate to secondary with less lag.
 
@@ -26,4 +26,8 @@ This will be useful in systems where lag does not matters, eg: reporting system 
 
 ## You chose CP
 
-When you are working on transaction system, consistency is very important. when your application write to master, it immediately writes to secondary nodes. If any one of node is down, it will not be saved in any of those nodes. This gives you data consistency across over the nodes. But you lose availability of DB, when one of the node goes down.
+what if you chose **Consistency**?
+
+When you are working on transaction system, consistency is very important. Let's say if your application write to master, it will immediately write to secondary nodes. If any one of node is down, it will not be saved in any nodes. This make sure that your data is consistent over all nodes.
+
+But when one of node goes down, your API will not be available.

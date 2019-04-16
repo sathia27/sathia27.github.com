@@ -4,7 +4,7 @@ title:  Cap Theorm
 date:   2019-04-11 15:42:04 +0530
 categories: posts
 ---
-Instead of choosing different database for explaining cases like CP, AP and CA. I will choose only Mongo to explain the scenarios.
+Instead of choosing different database for explaining CAP theorm, I will choose only Mongo to explain the scenarios.
 
 ## You chose CA
 
@@ -15,6 +15,8 @@ What if that Node goes due to Network issue or Hardware issue. Downtime of your 
 This problem can be solved by having multi node system. In particular, the CAP theorem implies that in the presence of a network partition, one has to choose between **consistency** and **availability**.
 
 *Note*: There are some database like Oracle which even doesn't support P (network partitioning). You can achieve partitioning using third party tools like Shareplex.
+
+when you start scaling your application, you have to make sure that there is no single point of failure. You have to introduce Network partioning to avoid the same. When you introduce network partioning, you might need to chose consistency or availability.
 
 ## You chose AP
 

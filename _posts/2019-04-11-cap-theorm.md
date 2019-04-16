@@ -24,4 +24,6 @@ When you chose Availability over Consistency, doesn't mean that data won’t be 
 
 This will be useful in systems where lag does not matters, eg: reporting system can be read from slave DB.
 
+## You chose CP
+
 When you are working on transaction system, consistency is very important. when your application write to master, it immediately writes to secondary nodes. If any one of node is down, it will not be saved in any of those nodes. This gives you data consistency across over the nodes. But you lose availability of DB, when one of the node goes down.

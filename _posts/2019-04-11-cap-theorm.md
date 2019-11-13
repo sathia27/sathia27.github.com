@@ -5,8 +5,6 @@ date: '2019-04-11 15:42:04 +0530'
 categories: posts
 published: true
 ---
-[Table of contents]({% link blog.html %})
-
 
 Instead of choosing different database for explaining CAP theorm, I will choose only Mongo to explain the scenarios.
 

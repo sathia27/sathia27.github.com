@@ -3,14 +3,33 @@ layout: post
 title: Cap Theorm
 date: '2019-04-11 15:42:04 +0530'
 categories: posts
-published: true
+published: false
 ---
 
 Instead of choosing different database for explaining CAP theorm, I will choose only Mongo to explain the scenarios.
 
-## You chose CA
+![CAP theorm](/img/blogs/cap-theorm/cap.jpeg)
 
 Let’s say you have single Node of DB. eg: mongo1
+
+## You chose CA
+
+You have built a cool application, let's say Trip booking application. You use **Mongo** to save those trips. 5000 unique users are using your application and booked more than 1,00,000 trips.
+
+Mongodb is hosted in data-center which is located in **country A**.
+
+Now **country A** got Tsunami. With good heart, let's assume. No one got harmed, only your websever got crashed.
+
+Luckily you have code in ur local or in ur version control. You can re-host again. But where you will get the data which you lost in Tsunami? What you are going to tell to your 5000 users.
+
+
+![Availability](/img/blogs/cap-theorm/tsunami_country-a.jpg)
+
+Your data is available at one place would make things worse. Due to some accident, if you lose data, it should be easier to recover your data, as your recovered code.
+
+How will you make this happen? When you 
+
+
 
 What if that Node goes due to Network issue or Hardware issue. Downtime of your application will increase till your mongo node comes back. Or what if data in that Mongo node is lost. Your application will not work, because you lost your data.
 

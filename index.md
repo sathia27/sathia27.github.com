@@ -1,6 +1,24 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
 ---
+
+## Summary
+	- Software Engineer
+	- Open source contributor
+
+## Software interest
+	- Programing
+		- Ruby
+		- Python
+		- Clojure
+		- Node
+		- Java
+		- PHP
+
+	- Distributed systems
+	- Devops
+
+## Hobbies
+	- Coding
+	- Travel
+	- Photography

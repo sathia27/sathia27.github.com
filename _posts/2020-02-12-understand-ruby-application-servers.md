@@ -19,11 +19,11 @@ This article needs understanding of below few topics.
 3. Global interpreter lock (GIL)
 
 As far as MRI (ruby < 3),
-*Parallelism*
+**Parallelism**:
 You cannot achieve parallelism using single process/Threads. Due to GCL (Global interpreter lock).
 But this was address in Ruby 3 using *Guild*.
 
-*Concurrency*
+**Concurrency**:
 Concurrency in ruby applications are achieved using ruby Threads.
 
 Read more about to understand differences between *Parallelism vs Concurrency*
@@ -76,5 +76,5 @@ Few other application servers which are notable.
 Single threaded concurrent web application server.
 This uses event-machine internally to gain concurrency. IO calls will not block your main thread to receive the request.
 
-### facob
+### Falcon
 This is fibre based instead of thread based. As Fibres are weigh lesser than threads, Hence application will consume lesser memory than other application servers,

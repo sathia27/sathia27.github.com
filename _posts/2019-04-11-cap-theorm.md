@@ -10,9 +10,7 @@ published: true
 
 ![CAP theorm](/img/blogs/cap-theorm/cap.jpeg)
 
-Let’s say you have single Node of DB
-
-What if that Node goes due to Network issue or Hardware issue. Downtime of your application will increase till your node comes back. Or what if data in that node is lost. Your application will not work, because you lost your data.
+When your database have single node. And when if node goes down due to any issues like Network or Hardware failure. Application Downtime will increase till your node comes back. And other scenario, you might lose your data.
 
 **Partition tolerance** is required in modern distributed systems
 
@@ -29,7 +27,7 @@ So whenever any writes happens, node will need time to update all other nodes. S
 
 But this make sure **All nodes see the same data at the same time**.
 
-eg: When you are working on transaction system, consistency is very important.
+Example: In case of transactional system, consistency is very important. Even when one node is lost, If your other node shows different for booking status of customer.
 
 ## You chose Availability
 
@@ -37,4 +35,4 @@ Availability refers to requirement that at any point of time, node should be 100
 
 So whenever any read/write happens, this make sure server will always be available. But this doesn't promise that data in other networks are 100% replicated.
 
-eg: If you are building log management server.
+Example: In case of Log management server, You are okay with data loss, but you should make sure log server is always available when client wants to log data.

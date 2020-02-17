@@ -9,6 +9,8 @@ tags: [ruby]
 
 When you are using Unicorn or Passenger Phusion based (community edition), you don't have to worry about thread safety, Because those servers are not multi-threaded servers.
 
+Read about application server [here]({% link _posts/2020-02-12-understand-ruby-application-servers.md %})
+
 But when comes to Puma which is currently rails's default. Puma comes with multi-threaded mode. You can chose to multi-process instead of multi-threaded. 
 
 Ruby with MRI run-time, does'nt allow you to execute code parallel due to GIL. But using multi-threaded server, your application will provide you concurrency (good throughput), when your application is IO bound. If your application is IO-bound, it would be better to work with multi-threaded instead of multi-process server.

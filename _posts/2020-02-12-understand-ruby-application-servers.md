@@ -77,4 +77,6 @@ Single threaded concurrent web application server.
 This uses event-machine internally to gain concurrency. IO calls will not block your main thread to receive the request.
 
 ### Falcon
-This is fibre based instead of thread based. As Fibres are weigh lesser than threads, Hence application will consume lesser memory than other application servers,
+This is fibre based instead of thread based. As Fibres are weigh lesser than threads, Hence application will consume lesser memory than other application servers.
+
+Read about Thread safety in Ruby [here]({% link _posts/2020-02-15-writing-thread-safe-with-ruby.md %})

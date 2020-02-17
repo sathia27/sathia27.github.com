@@ -24,7 +24,7 @@ So I started to put effort in learning FP this year.
 4. Also written a small cli application in clojure. You can find [here](https://gitlab.com/sathia.s/jira).
 5. Also Attended clojure conference in Pune, India. (This is my first self sponsored conference, Lol)
 
-## Below are few things I learned in Clojure till now.
+## These are few things I have learned in Clojure till today.
 1. Code as Data - Concept and philosophy from Clojure
 2. Writing Pure functional, What is side-effects?
 3. Data structures in Clojures
@@ -32,9 +32,9 @@ So I started to put effort in learning FP this year.
 5. What is persistence data structure?
 6. Why Lazy-seq are important?
 
-Still lot of things to learn
+Still there are lot of things to learn
 
-## Below are topics in ClojureIN
+## Below are topics and speakers in ClojureIN
 1. Opening Keynote: The Future of Clojure Tooling by **Bozhidar Batsov**
 2. Building data platforms from business stores using Clojure. By **Mayur Jadhav**
 3. Composable Data Pipelines for not-so-Big Data	By **Akaash Patnaik**

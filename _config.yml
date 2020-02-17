@@ -13,15 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Sathia notes...
-email: sathia2704@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Coding in Progress...
+author:
+  name: Sathia
+  email: "sathia2704@gmail.com"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: sathia27
-github_username:  sathia27
-
+title: Sathia notes...
+description: "Sharing my knowledge"
 permalink: /:categories/:year/:month/:day/:title:output_ext
 
 # Build settings
@@ -29,7 +27,22 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
-
+minima:
+  date_format: "%b %-d, %Y"
+  show_excerpts: true
+  header_pages:
+    - about.md
+  gitlab:
+    - username: sathias
+  disqus:
+    shortname: sathia27
+  social_links:
+    twitter: sathia27
+    github: sathia27
+    linkedin: sathia27
+    gitlab:
+      - username: sathias
+        instance: gitlab.com
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

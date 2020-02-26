@@ -6,77 +6,61 @@ categories: posts
 published: true
 ---
 
-Ruby have variety of application servers which are used widely in production.
-For this blog post, I would like to cover below 3 application servers which I have used recently.
+Ruby have many application servers which are widely used in production.
+For this blog post, I would like to cover below 5 application servers.
 
 1. Unicorn
 2. Phusion Passenger
 3. Puma
+4. Thin
+5. Falcon
 
 This article needs understanding of below few topics.
-1. Why ruby needed Application servers.
-2. What is **Rack** based applications. (not rake)
-3. Global interpreter lock (GIL)
-
-As far as MRI (ruby < 3),
-**Parallelism**:
-You cannot achieve parallelism using single process/Threads. Due to GCL (Global interpreter lock).
-But this was address in Ruby 3 using *Guild*.
-
-**Concurrency**:
-Concurrency in ruby applications are achieved using ruby Threads.
-
-Read more about to understand differences between *Parallelism vs Concurrency*
+1. Why ruby requires Application servers.
+2. What is Global interpreter lock - [GIL](https://en.wikipedia.org/wiki/Global_interpreter_lock)
+3. Also read differences between *Parallelism vs Concurrency*
+	You could refer below links:
+	[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)
+	[Concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing)
 
 ### Unicorn
-This is one of available open source application server available in Ruby on rails community.
+This is one of available open source application server available in Ruby on rails.
 
-**Advantage of using Unicorn:**
-1. This provides parallelism by forking multiple process. You could configure process count provided by unicorn configurations.
-2. You don't have to worry about Thread safety. As multiple process doesn't share memory.
+Unicorn spawner does fork to handle multiple requests. If you are running your application in multi-code systems you could achieve parallelism, by configuring process count in unicorn.
 
-**Disadvantages using Unicorn:**
-1. Let's say your ruby process takes around 10MB of memory, using process-based scaling will consume lot of memory in your single instance.
-2. In today's containerized world, it's recommended to have one process per container. If you want to handle throughput, you need to do horizontal scaling. Which increases more memory (includes cost per instance)
-3. Unicorn is used for MRI based ruby. Other run-time like Jruby is not be supported in unicorn
-4. Does'nt gives you multi-threaded environment as far now.
-5. As ruby does copy-on-write while forking, you have to make sure connections like DB, redis are re-established.
+As this is process based, memory consumption per server instance will be more. Let's say if your ruby process takes around 10 MB, and if you are running with 4 process (workers). Your default memory consumption per server instance will be 10*4 MB.
+
+But if you use >= Ruby 2.0, Forking is possible with less memory consumption due to Copy-on-write advantage of Operating system. You need to make sure your are reconnecting DB, Redis, File-system connections after forking.
+
+Unicorn doesn't give your multi-threaded capability for handling requests.
 
 ### Passenger Phusion
-There are two versions in Passenger Phusion. 
+There are two versions available in Passenger Phusion.
 1. Community Editions (Open source)
 2. Enterprise Editions
 
-**Advantage of using Passenger:**
-1. In community edition, Parallelism can be achieved using forking multiple process.
-2. In Enterprise edition, Concurrency can be achieved (Multi-threaded environment for enterprise edition).
-3. Passenger supports other programing languages other than Ruby. If you are company who uses programing languages like ruby, node.js etc. You can go with Phusion Passenger instead of Unicorn.
+In Community Edition, Passenger can be configured as Multi-Process server (fork based). Above description for Unicorn will be applicable for Passenger as well.
 
-**Disadvantages using Passenger:**
-1. You need to pay to use Enterprise.
+In Enterprise Edition, Passenger can be configured as both Multi-Process and Multi-threaded server.
+
+In Multi-threaded server, with MRI as runtime, you will not be able to achieve Parallelism due to GIL (Global interpretor lock) implemented inside MRI. MRI will not allow you to execute your threads parallel even in Multi core system. But you could achieve concurrency across the request. If your application is IO bounded, configuring your application in multi-threaded instead of multi-process will improve your application performance per server instance.
+
+If you are using multi-threaded server with JRuby run-time, You can achieve Parallelism. Jruby, Rubinius runtime doesn't have GIL implementation.
+
+But you need to make your code is thread-safe if you have configured your application server as multi-threaded server.
+Read about Thread safety in Ruby [here]({% link _posts/2020-02-15-writing-thread-safe-with-ruby.md %})
+
+Passenger supports other application like Python, Node.js other than Ruby. This is one of advantage of using Passenger over Unicorn/Puma.
 
 ### Puma
-This is one of favorite Heroku's favorite application server. Now it's Rails default application server.
-This is open and free software.
+This is one of favorite Heroku's favorite application server. Now it's Rails default application server. This is open and free software.
 
-**Advantage of using Puma:**
-1. This support multi-process and multi-threaded server. Hence you can gain, parallelism and concurrency as well. (which is same benefits as Passenger Phusion enterprise, But puma is free)
-You can configure workers (process count) and thread count in puma's configuration.
-
-2. With multi-threaded configuration, you can even gain parallelism with JRuby/Rubmine runtime environment.
-
-3. By configuring with threads, your application will consume less memory.
-
-**Disadvantages using Passenger:**
-1. No disadvantages, Make sure you write thread-safe code. If your code is not thread-safe, still you can use Puma with worker configurations, with thread count as 0. (which would work like Unicorn)
-
-Few other application servers which are notable.
+Puma gives you both Multi-threaded and Multi-process server capability for Free. This is bigger advantages for using Puma over Passenger/Unicorn for Ruby application.
 
 ### Thin
 Single threaded concurrent web application server.
-This uses event-machine internally to gain concurrency. IO calls will not block your main thread to receive the request.
+This uses event-machine internally to gain concurrency. IO calls will not block your main thread, so your main thread will not be blocked to receive the request.
 
 ### Falcon
-This is fibre based instead of thread based. As Fibres are weigh lesser than threads, Hence application will consume lesser memory than other application servers.
+This is Fibre-based instead of thread based. Fibres in Ruby consumes very lesser memory than Thread. It would consume very lesser memory than Other application servers.
 
-Read about Thread safety in Ruby [here]({% link _posts/2020-02-15-writing-thread-safe-with-ruby.md %})

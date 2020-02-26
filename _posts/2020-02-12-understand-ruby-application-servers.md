@@ -43,7 +43,7 @@ In Community Edition, Passenger can be configured as Multi-Process server (fork 
 
 In Enterprise Edition, Passenger can be configured as both Multi-Process and Multi-threaded server.
 
-In Multi-threaded server, with MRI as runtime, you will not be able to achieve Parallelism due to GIL (Global interpretor lock) implemented inside MRI. MRI will not allow you to execute your threads parallel even in Multi core system. But you could achieve concurrency across the request. If your application is IO bounded, configuring your application in multi-threaded instead of multi-process will improve your application performance per server instance.
+In Multi-threaded server, with MRI as runtime, you will not be able to achieve Parallelism due to GIL (Global interpretor lock) implemented inside MRI. MRI will not allow you to execute your threads parallel even in Multi core system. But you could achieve concurrency across the request. If your application is IO bounded, configuring your application in multi-threaded instead of multi-process will improve your memory footprint of your application.
 
 If you are using multi-threaded server with JRuby run-time, You can achieve Parallelism. Jruby, Rubinius runtime doesn't have GIL implementation.
 

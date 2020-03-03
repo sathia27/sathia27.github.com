@@ -7,24 +7,17 @@ published: true
 tags: [ruby]
 ---
 
-When you are using Unicorn or Passenger Phusion based (community edition), you don't have to worry about thread safety, Because those servers are not multi-threaded servers.
+When you are using Unicorn or Passenger Phusion based (community edition), you don't have to worry about thread safety, Because these servers are multi-process (workers) based servers.
 
 Read about application server [here]({% link _posts/2020-02-12-understand-ruby-application-servers.md %})
 
-But when comes to Puma which is currently rails's default. Puma comes with multi-threaded mode. You can chose to multi-process instead of multi-threaded. 
-
-Ruby with MRI run-time, does'nt allow you to execute code parallel due to GIL. But using multi-threaded server, your application will provide you concurrency (good throughput), when your application is IO bound. If your application is IO-bound, it would be better to work with multi-threaded instead of multi-process server.
-
-While running Puma with Jruby can give you parallelism with multi-threaded configurations.
-
-From MRI background, we tend not to write thread-safety code. This will cause issues in multi-threaded environment like Puma.
-
+But when comes to Puma, It comes with Multi-threaded options as well. From MRI background, we tend not to write thread-safety code. This will cause issues in multi-threaded environment like Puma.
 If you are going to migrate application server from Unicorn/Passenger to Puma (with multi-threaded code), make sure you follow few tips.
 
+
+### 1. Good practice to use constant, Freeze it!
 Ruby doesn't gives you immutable data structure, Even constant is mutable in Ruby's world.
 
-
-Eg:
 ```ruby
 2.5.0 :001 > IAM_CONSTANT = "test"
  => "test"
@@ -42,7 +35,6 @@ Eg:
 2.5.0 :003 >
  ```
 
-### 1. Good practice to use constant, Freeze it!
 ```ruby
 2.5.0 :001 > IAM_ARRAY_CONSTANT = ["Haha! I am constant, no one can change me!"].freeze
  => ["Haha! I am constant, no one can change me!"]
@@ -55,7 +47,7 @@ FrozenError (can't modify frozen Array)
 
 ### 2. Don't mutate Global variables
 
-I have worked with Legacy code-bases before where we used to determine current logged-in user using Global variable. It worked fine when we have used Application servers like Passenger. Those code will not work with Puma like servers.
+I have worked with Legacy code-bases before where we used to determine current user using Global variable. It worked fine when we have used Application servers like Passenger. Those code will not work with Puma like servers.
 
 ```ruby
 class UsersController < ApplicationController
@@ -92,7 +84,7 @@ Show normal template
 Completed 200 OK in 10ms (Views: 1.2ms | ActiveRecord: 0.0ms)
 ```
 
-### 3. Can't use class variables / class instance variables
+### 3. Class variables / class instance variables is not thread safe.
 Even class method is not thread safe, If you mutating class variable, that will make your code smell
 
 ### 5. Memoization is good till you are in right sense.
@@ -104,7 +96,7 @@ class UsersController < ApplicationController
   before_action :fetch_user
 
   def fetch_user
-  @user = User.fetch_user(@user_id)
+  @user = User.find_user_once(@user_id)
   end
 
   def index

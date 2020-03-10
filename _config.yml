@@ -25,6 +25,8 @@ permalink: /:categories/:year/:month/:day/:title:output_ext
 # Build settings
 markdown: kramdown
 theme: minima
+disqus:
+  shortname: sathias
 plugins:
   - jekyll-feed
 minima:
@@ -34,8 +36,6 @@ minima:
     - about.md
   gitlab:
     - username: sathias
-  disqus:
-    shortname: sathias
   social_links:
     twitter: sathia27
     github: sathia27

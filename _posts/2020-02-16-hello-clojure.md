@@ -9,7 +9,7 @@ tags: [ruby]
 
 My majority of my experience is with Ruby, even though I have hands on with Node.js, PHP, Python and Java.
 
-I have always worked with Object oriented paradigm. I love to work with different programing language, This time I chose Functional paradigm.
+I have always worked with Object oriented paradigm. I love to work with different programming language, This time I chose Functional paradigm.
 
 Even ruby, Python or Java gives you way to write Functional way, But you might not able to write full functional code over there. Or library you chose will not allow you to write functional code as well.
 
@@ -21,8 +21,8 @@ So I started to put effort in learning FP this year.
 
 2. I have started reading book called **Clojure for Brave and True**
 3. Sharing my learning clojure experience in [gitlab](https://gitlab.com/sathia.s/learning-clojure)
-4. Written CLI application in clojure. You can find [here](https://gitlab.com/sathia.s/jira).
-5. Attended clojure conference in Pune, India. (This is my first self sponsored conference, Lol)
+4. Written CLI application in Clojure. You can find [here](https://gitlab.com/sathia.s/jira).
+5. Attended Clojure conference in Pune, India. (This is my first self sponsored conference, Lol)
 
 ## These are few progress in Clojure learnings.
 1. Code as Data - Concept and philosophy from Clojure

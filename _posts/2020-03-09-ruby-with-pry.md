@@ -7,7 +7,7 @@ published: true
 tags: [ruby]
 ---
 
-If you are ruby Developer, You must be using `binding.pry` very common for debugging rails / ruby projects. But `pry` and `binding` is more than `binding.pry` use case.
+If you are ruby Developer, You must be using `binding.pry` very common for debugging rails / ruby projects. Do you know what is `pry` and `binding`? I will try to walk through about `binding` and `pry`. And also I walk through how `pry` is more powerful tool for debugging.
 
 <div style="width:500px; margin: 10px auto"><img src="/img/blogs/ruby-pry/binding-plus-pry.jpeg" /></div>
 

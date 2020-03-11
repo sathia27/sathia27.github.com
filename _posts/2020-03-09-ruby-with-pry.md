@@ -9,36 +9,11 @@ tags: [ruby]
 
 If you are ruby Developer, You must be using `binding.pry` very common for debugging rails / ruby projects. But `pry` and `binding` is more than `binding.pry` use case.
 
-## Objectives
-  1. Understand what is `binding` in `binding.pry`
-  2. Understand what is `pry` in `binding.pry`
-  3. How `binding.pry` works?
-  4. How `pry` can be used other than `binding.pry`?
-
 <div style="width:500px; margin: 10px auto"><img src="/img/blogs/ruby-pry/binding-plus-pry.jpeg" /></div>
 
-## What is binding?
+## What is binding and how binding.pry works?
 
-Any Objects of class can be encapsulated into context and you can retain this context for future use. The variables, methods, value of self, and possibly an iterator block that can be accessed in this context are all retained.
-
-You must have used `binding` with ERB. Below is example to understand `binding` better.
-
-```ruby
-2.6.3 :001 > require 'erb'
- => true
-2.6.3 :002 > name = "Sathia"
- => "Sathia"
-2.6.3 :003 > b = binding
- => #<Binding:0x00007fa3c410be08>
-2.6.3 :004 > def display_template(b)
-2.6.3 :005?>   ERB.new("Hi <%= name %>").result(b)
-2.6.3 :006?>   end
- => :display_template
-2.6.3 :007 > display_template(b)
- => "Hi Sathia"
-2.6.3 :008 >
-```
-Binding of outer scope is retained (freezed) and passed to `display_template` function, so `name` variable is available inside ERB template
+[Read blog post about binding in Ruby]({% link _posts/2020-03-09-binding-ruby.md %})
 
 ## What is pry?
 

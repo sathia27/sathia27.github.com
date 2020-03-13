@@ -4,7 +4,7 @@ title: Ruby with pry
 date: '2020-03-09'
 categories: posts
 published: true
-tags: [ruby]
+tags: [ruby, pry, binding, debugging]
 ---
 
 If you are ruby Developer, You must be using `binding.pry` very common for debugging rails / ruby projects. Do you know what is `pry` and `binding`? I will try to walk through about `binding` and `pry`. And also I walk through how `pry` is more powerful tool for debugging.

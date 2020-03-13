@@ -4,6 +4,7 @@ title: Cap Theorm
 date: '2019-04-11 15:42:04 +0530'
 categories: posts
 published: true
+tags: [scalability, cap, cap theorm, consistency, availability]
 ---
 
 ## Understanding CAP theorm

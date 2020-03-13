@@ -4,7 +4,7 @@ title: Hello Clojure
 date: '2020-02-16'
 categories: posts
 published: true
-tags: [ruby]
+tags: [functional, clojure, conference, india]
 ---
 
 My majority of my experience is with Ruby, even though I have hands on with Node.js, PHP, Python and Java.

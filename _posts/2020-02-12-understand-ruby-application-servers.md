@@ -4,6 +4,7 @@ title: Ruby Application servers
 date: '2020-02-12'
 categories: posts
 published: true
+tags: [ruby, threads, server, application server]
 ---
 
 Ruby have many application servers which are widely used in production.
@@ -63,4 +64,3 @@ This uses event-machine (Event driven) internally to gain concurrency. Any IO ca
 
 ### Falcon
 This is Fibre-based instead of thread based. Fibres in Ruby consumes very lesser memory than Thread. It would consume very lesser memory than Other application servers.
-

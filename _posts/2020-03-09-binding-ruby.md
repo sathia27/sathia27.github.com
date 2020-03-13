@@ -4,7 +4,7 @@ title: How binding works in ruby
 date: '2020-03-09'
 categories: posts
 published: true
-tags: [ruby]
+tags: [ruby, pry, binding, debugging]
 ---
 
 ### What is binding?

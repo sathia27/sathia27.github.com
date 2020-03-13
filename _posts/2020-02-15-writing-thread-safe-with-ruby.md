@@ -4,7 +4,7 @@ title: Thread safety in Ruby
 date: '2020-02-15'
 categories: posts
 published: true
-tags: [ruby]
+tags: [ruby, thread safety, threads, code]
 ---
 
 When you are using Unicorn or Passenger Phusion based (community edition), you don't have to worry about thread safety, Because these servers are multi-process (workers) based servers.
@@ -88,7 +88,7 @@ Completed 200 OK in 10ms (Views: 1.2ms | ActiveRecord: 0.0ms)
 Even class method is not thread safe, If you mutating class variable, that will make your code smell
 
 ### 5. Memoization is good till you are in right sense.
-Memoization is for sure good practice, when you want to cache across multiple calls inside object. 
+Memoization is for sure good practice, when you want to cache across multiple calls inside object.
 Make sure whichever memoizing inside class method can shared across multiple request as well.
 
 ```ruby

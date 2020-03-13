@@ -29,6 +29,7 @@ disqus:
   shortname: sathias
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 minima:
   date_format: "%b %-d, %Y"
   show_excerpts: true

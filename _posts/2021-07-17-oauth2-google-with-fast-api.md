@@ -7,7 +7,10 @@ published: true
 tags: [programing, python, fastapi]
 ---
 
-Recently I was exploring FastApi micro-framework of Python. There are many interesting features that are found in FastApi. While I was exploring FastApi in on of my project, I was trying to integrate Google Oauth in my project. 
+Recently I was exploring FastApi micro-framework of Python. There are many interesting features that are found in FastApi. While I was exploring FastApi in on of my project, I was trying to integrate Google Oauth 
+in my project. 
+
+> Fast API is a modern, open-source, fast, and highly performant Python web framework used for building Web APIs and is based on Python 3.6+ standard type hints.
 
 I don't find much documentation on Google Oauth2 login docs compared with other framework. So decided to share my experience here.
 
@@ -90,9 +93,9 @@ oauth.register(
 )
 ```
 
-However, unlike Flask/Django, Starlette OAuth registry is using HTTPX AsyncOAuth1Client and AsyncOAuth2Client as the OAuth backends. While Flask and Django are using the Requests version of OAuth1Session and OAuth2Session.
+However, unlike Flask/Django, Starlette OAuth registry is using [HTTPX](https://github.com/encode/httpx), So as part of this setup, please make sure `httpx` is installed
 
-So as part of this setup, please make sure `httpx` is installed
+> httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads.
 
 ```bash
 pip install httpx

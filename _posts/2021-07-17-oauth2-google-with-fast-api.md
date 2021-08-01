@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Oauth with Fast API
+title: Oauth with Python FastAPI
 date: '2021-07-29'
 categories: posts
 published: true

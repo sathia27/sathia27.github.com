@@ -126,3 +126,6 @@ async def authorize_google(request):
 Go to google API console, Fetch credentials and save it in your project.
 <div style="width:500px; margin: 10px auto"><img src="/img/blogs/fast-api/google-console.png" /></div>
 
+References:
+1. [Authlib](https://docs.authlib.org/en/latest/client/oauth2.html)
+2. [Authlib blog](https://blog.authlib.org/2020/fastapi-google-login)

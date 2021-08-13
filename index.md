@@ -1,24 +1,13 @@
 ---
 layout: home
 ---
+<link href="https://languages.abranhe.com/logos.css" rel="stylesheet">
 
 ## Summary
-	- Software Engineer
-	- Open source contributor
+Software Engineer, Open source contributor
 
-## Software interest
-	- Programing
-		- Ruby
-		- Python
-		- Clojure
-		- Node
-		- Java
-		- PHP
-
-	- Distributed systems
-	- Devops
+{% assign handsOn = "ruby,golang,python,node,java,git,aws,linux,docker,database" | split: "," %}
+## Hands on with {% for a in handsOn %} <img title="{{a}}" src = '/img/icons/{{a}}.png' />{% endfor %}
 
 ## Hobbies
-	- Coding
-	- Travel
-	- Photography
+Travel, Photography, Gardening

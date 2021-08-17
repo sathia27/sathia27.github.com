@@ -7,12 +7,11 @@ published: true
 tags: [programing, python, fastapi]
 ---
 
-Recently I was exploring FastApi micro-framework of Python. There are many interesting features that are found in FastApi. While I was exploring FastApi in on of my project, I was trying to integrate Google Oauth 
-in my project. 
+Recently I was exploring the FastApi micro-framework of Python. There are many interesting features that are found in FastApi. While I was exploring FastApi in one of my projects, I was trying to integrate Google Oauth in my project.
 
 > Fast API is a modern, open-source, fast, and highly performant Python web framework used for building Web APIs and is based on Python 3.6+ standard type hints.
 
-I don't find much documentation on Google Oauth2 login docs compared with other framework. So decided to share my experience here.
+I don’t find much documentation on Google Oauth2 login docs compared with other frameworks. So I decided to share my experience here.
 
 ### FastApi setup
 
@@ -21,7 +20,7 @@ from typing import Optional
 from fastapi import FastAPI, Request
 ```
 
-The Optional and FastAPI imports are standard among FastAPI applications. `Optional` is for type supporting in python. It is used for validating user's request before entering Api.
+The Optional and FastAPI imports are standard among FastAPI applications. Optional is for type support in python. It is used for validating a user's request before entering Api.
 
 
 ```python
@@ -53,7 +52,7 @@ oauth.register(
 )
 ```
 
-Above code reads client_secret and client_id from configuration file. If you want to do manually via code, please refer code.
+Above code reads client_secret and client_id from configuration file. If you want to do it manually via code, please refer to the code.
 
 ```python
 oauth.register(
@@ -64,7 +63,7 @@ oauth.register(
 )
 ```
 
-Above are few ways to pass client_id and client_secret. Instead I would prefer to read secrets from environment file instead.
+Above are a few ways to pass client_id and client_secret. Instead I would prefer to read secrets from the environment file instead.
 
 ```python
 from starlette.config import environ
@@ -95,7 +94,7 @@ oauth.register(
 
 However, unlike Flask/Django, Starlette OAuth registry is using [HTTPX](https://github.com/encode/httpx), So as part of this setup, please make sure `httpx` is installed
 
-> httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads.
+> httpx is a fast and multi-purpose HTTP toolkit to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads.
 
 ```bash
 pip install httpx

@@ -7,7 +7,7 @@ published: true
 tags: [golang, programming, basics, golang basics, structs]
 ---
 
-There was recent experience when I was playing around with Go-lang's struct and JSON marshal. Take a look at below example
+There was a recent experience when I was playing around with Go-lang's struct and JSON marshal. Take a look at below example
 
 
 ```go
@@ -41,13 +41,13 @@ Below is output
 {}
 ```
 
-Did you notice above code. Within same package printing `trip` returns the data (`{ air}`) correctly but `tripJson` returned empty (`{}`) with no error. It's because `json` package will silently ignore private fields in your struct.
+Did you notice the above code? Within the same package printing `trip` returns the data (`{ air}`) correctly but `tripJson` returns empty (`{}`) with no error. It's because the `json` package will silently ignore private fields in your struct.
 
 ### Un-exported / private fields.
 
-Any method or variables starts with small case letter will be considered as private / Un-exported fields. That's not how "privacy" works in Go
+Any method or variables starting with a small case letter will be considered as private / Unexported fields. That's not how "privacy" works in Go
 
-In above case, `json` is separate package, so `json` package will not have access for setting/getting of private / Un-exported fields.
+In the above case, `json` is a separate package, so the `json` package will not have access for setting/getting private / Unexported fields.
 
 ### Fixing above struct
 
@@ -104,7 +104,7 @@ func main() {
 ```
 
 
-With above code, `go vet` will throw warnings for using exported fields when it is tagged with json tag.
+With the above code, `go vet` will throw warnings for using exported fields when it is tagged with a json tag.
 
 ```bash
 ➜go vet trip/trip.go
@@ -112,7 +112,7 @@ trip/trip.go:9:4: struct field tripId has json tag but is not exported
 trip/trip.go:10:4: struct field tripType has json tag but is not exported
 ```
 
-It's always safe to use json tags even when keys are same, this helps to avoid mistakes at some extent. When invoking `vet` would show warnings when you are using private variables with `json` tag. 
+It's always safe to use json tags even when keys are the same, this helps to avoid mistakes to some extent. When invoking `vet` would show warnings when you are using private variables with `json` tag.
 
 Note: Go compiler still will not throw error for above scenario.
 

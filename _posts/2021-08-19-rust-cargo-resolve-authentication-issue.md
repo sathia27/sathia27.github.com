@@ -42,7 +42,7 @@ Identity added: /Users/sathia/.ssh/id_rsa
 
 ### Using cargo net-git-fetch
 
-If above authentication method fails, cargo provides config which executes the git executable to handle fetching remote repositories instead of using the built-in support
+If the above authentication method fails, cargo provides a config that executes the git executable to handle fetching remote repositories instead of using the built-in support
 
 ```bash
  ➜  CARGO_NET_GIT_FETCH_WITH_CLI=true cargo build
@@ -64,5 +64,3 @@ It should work after the above step.
 ### Reference
 
 [Rust doc reference](https://doc.rust-lang.org/nightly/cargo/appendix/git-authentication.html#git-authentication)
-
-

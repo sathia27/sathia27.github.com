@@ -9,19 +9,23 @@ tags: [ruby, rails, csrf, security, owasp]
 
 ### Cross-Site Request Forgery (CSRF)
 
-Consider you have visited both Genuine and attacker websites. Attacker tricks you to submit information to a Genuine website from an attacker website. A CSRF attack works because browser requests automatically include all cookies including session cookies. Therefore, if the user is authenticated to the site, the site cannot distinguish between genuine user requests an attacker requests.
+A CSRF attack is a type of attack where a malicious website tricks the user into submitting sensitive information to a legitimate website, while the user is authenticated. This is possible because the browser automatically includes all cookies, including session cookies, in requests made to a website. As a result, the legitimate website cannot distinguish between a genuine user request and an attacker request, allowing the attacker to gain access to sensitive information.
 
-By doing this, attacker can change password or update any critical information of the genuine website.
+Another example of a CSRF attack is when an attacker creates a webpage with a form that automatically submits sensitive information, such as a password change or a money transfer, when the user visits the page. The attacker then tricks the user into visiting the page, which will automatically submit the form and execute the attacker's desired action on the legitimate website.
 
 ![alt Attacker-Genuine](/img/blogs/rails/attacker_genuine.png "Attacker vs Genuine")
 
 ### CSRF token and rails
 
-CSRF tokens should be generated on the server-side. They can be generated once per user session or for each request. Whenever a form is submitted, the server must verify submitted token and session is matching.
+CSRF attacks can be mitigated by using anti-CSRF tokens, which are unique, unpredictable values that are associated with each user's session. These tokens are included in forms and requests, and are checked by the website before any sensitive action is taken. This ensures that only requests that contain a valid token are accepted, protecting the website from CSRF attacks.
 
-Rails generate csrf token **per session** instead of each request. Rails took this decision to **avoid usability** issues. Let’s say if the user clicked the back button, and try to submit the form then the application throws an error because of the in-valid token.
+CSRF attacks can be mitigated by using anti-CSRF tokens, which are unique, unpredictable values that are associated with each user's session. These tokens are included in forms and requests, and are checked by the website before any sensitive action is taken. This ensures that only requests that contain a valid token are accepted, protecting the website from CSRF attacks.
 
-Rails 5 comes up with **per-form csrf-token** which can be enabled in application level or controller level.
+Once generated, the token is associated with the user's session and included in forms and requests. The token is then checked by the server-side application before any sensitive action is taken to ensure that only requests that contain a valid token are accepted. It's important to note that the CSRF token should be unique for each form and request, and should not be stored client-side. It also should be rotated regularly.
+
+Rails, a web application framework, generates a CSRF token once per session instead of for every request, in order to prevent usability issues. For instance, if a user clicks the back button and submits a form, an error would occur due to the invalid token. This is to avoid such situations.
+
+In Rails 5, an option for generating a per-form CSRF token has been introduced. This can be enabled on the application level or on the controller level, providing more granular control and security.
 
 ```ruby
 class ActivitiesController < ApplicationController
@@ -35,7 +39,7 @@ config.action_controller.per_form_csrf_tokens = true
 
 ### Authenticity token
 
-Rails form inserts authenticity_token in every form instead of csrf_token, every time we reload the page, the authenticity token will change. This could be easy to monitor if a user is trying to submit the form with the same authenticity multiple times.
+Rails uses "authenticity_token" instead of "csrf_token" in forms, and regenerates the token each time the page is reloaded. This allows for easy monitoring of attempts to submit a form multiple times with the same token, increasing security against CSRF attacks.
 
 Authenticity token is generated based on csrf_token. As csrf_token is generated per session, authenticity_token will expire only when user log out.
 
